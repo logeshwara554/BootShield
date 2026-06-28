@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="sidebar">
+
+    <h2>🛡 BootShield</h2>
+
+    <ul>
+
+        <li class="active">Dashboard</li>
+        <li>Hardware</li>
+        <li>Firmware</li>
+        <li>Threats</li>
+        <li>Reports</li>
+        <li>Settings</li>
+
+    </ul>
+
+</div>
+
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>UEFI Security Dashboard</h1>
+
+        <div id="clock"></div>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Threat Score</h3>
+            <h1 id="score">18%</h1>
+        </div>
+
+        <div class="card">
+            <h3>Secure Boot</h3>
+            <h1>Enabled</h1>
+        </div>
+
+        <div class="card">
+            <h3>Risk</h3>
+            <h1 class="safe">SAFE</h1>
+        </div>
+
+        <div class="card">
+            <h3>Boot Mode</h3>
+            <h1>UEFI</h1>
+        </div>
+
+    </div>
+
+
+    <div class="grid">
+
+        <div class="chart-card">
+
+            <h2>Threat Timeline</h2>
+
+            <canvas id="threatChart"></canvas>
+
+        </div>
+        
+        <div class="hardware">
+
+<h2>Hardware Information</h2>
+
+<table>
+
+<tr>
+<td>Hostname</td>
+<td>{{ info.hostname }}</td>
+</tr>
+
+<tr>
+<td>Operating System</td>
+<td>{{ info.os }}</td>
+</tr>
+
+<tr>
+<td>Version</td>
+<td>{{ info.release }}</td>
+</tr>
+
+<tr>
+<td>Architecture</td>
+<td>{{ info.architecture }}</td>
+</tr>
+
+<tr>
+<td>CPU</td>
+<td>{{ info.processor }}</td>
+</tr>
+
+<tr>
+<td>CPU Cores</td>
+<td>{{ info.cores }}</td>
+</tr>
+
+<tr>
+<td>RAM</td>
+<td>{{ info.ram }} GB</td>
+</tr>
+
+</table>
+
+</div>
+
+
+        <div class="terminal">
+
+            <h2>Live Event Feed</h2>
+
+            <div id="terminal">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <button id="scanBtn">
+        Run Full Scan
+    </button>
+
+</div>
+
+{% endblock %}
